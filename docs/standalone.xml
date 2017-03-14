@@ -1,0 +1,7 @@
+...
+<security-domain name="MyRealm" cache-type="default">
+    <authentication>
+        <login-module code="de.gedoplan.custome.jaas.CustomeJAASLoginModule" flag="required"/>
+    </authentication>
+</security-domain>
+...
