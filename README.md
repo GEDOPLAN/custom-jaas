@@ -5,6 +5,6 @@ Eigenes JAAS-Login Modul für Wildfly 10, Beispiel authentifiziert gegen einen R
 
 ```
 ### Blog:
-xxxx
+[https://javaeeblog.wordpress.com/?p=3311](https://javaeeblog.wordpress.com/?p=3311)
 ```
 by GEDOPLAN, Dominik Mathmann

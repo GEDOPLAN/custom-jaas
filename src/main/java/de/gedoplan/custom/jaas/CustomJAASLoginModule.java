@@ -48,8 +48,8 @@ public class CustomJAASLoginModule implements LoginModule {
 
   public boolean login() throws LoginException
   {
-    NameCallback nameCallback = new NameCallback("username:");
-    PasswordCallback passwordCallback = new PasswordCallback("password:", false);
+    NameCallback nameCallback = new NameCallback("Benutzer");
+    PasswordCallback passwordCallback = new PasswordCallback("Password", false);
 
     try {
       callbackHandler.handle(new Callback[]{nameCallback, passwordCallback});
