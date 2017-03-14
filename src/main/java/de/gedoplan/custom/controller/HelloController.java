@@ -1,4 +1,4 @@
-package de.gedoplan.custome.jaas;
+package de.gedoplan.custom.controller;
 
 import java.util.ArrayList;
 import java.util.List;

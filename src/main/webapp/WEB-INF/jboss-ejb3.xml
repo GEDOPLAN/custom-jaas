@@ -8,7 +8,7 @@
     <assembly-descriptor>
         <s:security>
             <ejb-name>*</ejb-name>
-            <s:security-domain>MyRealm</s:security-domain>
+            <s:security-domain>MySecurityDomain</s:security-domain>
         </s:security>
     </assembly-descriptor>
 </jboss:jboss>

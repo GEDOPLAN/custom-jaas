@@ -1,4 +1,4 @@
-package de.gedoplan.custome.jaas;
+package de.gedoplan.custom.jaas;
 
 import com.sun.security.auth.UserPrincipal;
 import java.io.IOException;
@@ -22,11 +22,8 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-import org.jboss.security.SimpleGroup;
-import org.jboss.security.SimplePrincipal;
 
-@RequestScoped
-public class CustomeJAASLoginModule implements LoginModule {
+public class CustomJAASLoginModule implements LoginModule {
 
   protected Subject subject;
 
