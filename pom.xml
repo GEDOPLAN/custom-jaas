@@ -24,11 +24,7 @@
         </dependency>
         
         <!-- https://mvnrepository.com/artifact/org.picketbox/jbosssx-bare -->
-        <dependency>
-            <groupId>org.picketbox</groupId>
-            <artifactId>jbosssx-bare</artifactId>
-            <version>4.9.7.Final</version>
-        </dependency>
+
     </dependencies>
 
 </project>
