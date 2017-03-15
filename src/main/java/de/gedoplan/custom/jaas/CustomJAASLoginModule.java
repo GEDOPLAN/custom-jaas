@@ -23,6 +23,11 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
+/**
+ * JAAS Login Module
+ * 
+ * @author Dominik Mathmann
+ */
 public class CustomJAASLoginModule implements LoginModule {
 
   protected Subject subject;
@@ -37,6 +42,14 @@ public class CustomJAASLoginModule implements LoginModule {
 
   private Map options;
 
+  /**
+   * Initialisierungs-Methode, übernimmt für die weiteren Aufrufe die Parameter in Instanzvariablen.
+   * 
+   * @param subject Aufrufer
+   * @param callbackHandler Handler um Benutzereingaben zu erhalten
+   * @param sharedState zusätzliche Informationen von anderen Auth-Providern
+   * @param options Optionen aus SecurityDomain Konfiguration
+   */
   public void initialize(Subject subject, CallbackHandler callbackHandler, Map<String, ?> sharedState,
       Map<String, ?> options)
   {
@@ -46,6 +59,14 @@ public class CustomJAASLoginModule implements LoginModule {
     this.options = options;
   }
 
+  /**
+   * Login.
+   * 
+   * Ruft Benutzer und Passwor vom Bentzer ab und führt dann ein Dummy-Login über einen Webservice durch.
+   * 
+   * @return true/false Login-Status
+   * @throws LoginException
+   */
   public boolean login() throws LoginException
   {
     NameCallback nameCallback = new NameCallback("Benutzer");
@@ -74,6 +95,12 @@ public class CustomJAASLoginModule implements LoginModule {
     return false;
   }
 
+  /**
+   * Methode wird durchlaufen wenn beim "login" kein Fehler aufgetreten ist.
+   * 
+   * @return
+   * @throws LoginException
+   */
   public boolean commit() throws LoginException
   {
     if (loggedIn) {
@@ -86,12 +113,24 @@ public class CustomJAASLoginModule implements LoginModule {
     return false;
   }
 
+  /**
+   * Login nicht erfolgreich
+   * 
+   * @return
+   * @throws LoginException
+   */
   public boolean abort() throws LoginException
   {
     subject = null;
     return true;
   }
 
+  /**
+   * logout.
+   * 
+   * @return
+   * @throws LoginException
+   */
   public boolean logout() throws LoginException
   {
     if (subject != null && identity != null) {
@@ -101,6 +140,15 @@ public class CustomJAASLoginModule implements LoginModule {
     return false;
   }
 
+  /**
+   * Dummy Login über einen Webservice.
+   * 
+   * Login erfolgt über Userame und seine Mail Adresse auf Basis von jsonplaceholder-API
+   * 
+   * @param username Benutzername,
+   * @param password Passwort
+   * @return true wenn Benutzername und Passwort übereinstimmen.
+   */
   private boolean logInWS(String username, String password)
   {
     List<String> allStickers = new ArrayList<>();
